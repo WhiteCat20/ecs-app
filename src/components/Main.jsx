@@ -4,6 +4,32 @@ import CardNav from "./CardNav";
 import Header from "./Header";
 
 const Main = () => {
+  const cardNavData = [
+    {
+      desc: "Jadwal Piket",
+      icon: "fa-solid fa-calendar-days",
+    },
+    {
+      desc: "Absensi Piket",
+      icon: "fa-regular fa-pen-to-square",
+    },
+    {
+      desc: "Buat Agenda",
+      icon: "fa-solid fa-gear",
+    },
+    {
+      desc: "Absensi Agenda",
+      icon: "fa-solid fa-check",
+    },
+    {
+      desc: "List Harga",
+      icon: "fa-solid fa-money-check-dollar",
+    },
+    {
+      desc: "Peminjaman",
+      icon: "fa-solid fa-list-check",
+    },
+  ];
   return (
     <Fragment>
       <div className="container">
@@ -17,11 +43,9 @@ const Main = () => {
             gap: "20px",
           }}
         >
-          <CardNav desc="Jadwal Piket" icon="fa-solid fa-calendar-days" />
-          <CardNav desc="Absensi Piket" icon="fa-regular fa-pen-to-square" />
-          <CardNav desc="Buat Agenda" icon="fa-solid fa-gear" />
-          <CardNav desc="Absensi Agenda" icon="fa-solid fa-check" />
-          <CardNav desc="List Harga" icon="fa-solid fa-money-check-dollar" />
+          {cardNavData.map((card, i) => {
+            return <CardNav key={i} desc={card.desc} icon={card.icon} />;
+          })}
         </div>
       </div>
     </Fragment>
