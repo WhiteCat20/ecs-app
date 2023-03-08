@@ -1,9 +1,9 @@
 import React from "react";
 
-const CardNav = ({ desc, icon }) => {
+const CardNav = ({ desc, icon, href }) => {
   return (
     <a
-      href="#"
+      href={href}
       style={{ color: "inherit", textDecoration: "none", flexGrow: "1" }}
     >
       <div

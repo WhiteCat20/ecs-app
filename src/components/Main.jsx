@@ -8,6 +8,7 @@ const Main = () => {
     {
       desc: "Jadwal Piket",
       icon: "fa-solid fa-calendar-days",
+      href: "/jadwal-piket",
     },
     {
       desc: "Absensi Piket",
@@ -44,7 +45,14 @@ const Main = () => {
           }}
         >
           {cardNavData.map((card, i) => {
-            return <CardNav key={i} desc={card.desc} icon={card.icon} />;
+            return (
+              <CardNav
+                key={i}
+                desc={card.desc}
+                icon={card.icon}
+                href={card.href}
+              />
+            );
           })}
         </div>
       </div>
