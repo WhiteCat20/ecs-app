@@ -1,0 +1,28 @@
+const listAsisten = [
+  "Atras",
+  "Endroen",
+  "Lazuardi",
+  "Seha",
+  "Ricko",
+  "Ulul",
+  "Revi",
+  "Dzul",
+  "Alif",
+  "Faiz",
+  "Fani",
+  "Adinda",
+  "Safira",
+  "Abrar",
+  "Naufal",
+  "Vikry",
+  "Dayat",
+  "Ghazi",
+  "Rezi",
+  "Norris",
+  "Amalia",
+  "Sheren",
+  "Adam",
+  "Azzua",
+];
+
+export default listAsisten;

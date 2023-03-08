@@ -13,14 +13,17 @@ const Main = () => {
     {
       desc: "Absensi Piket",
       icon: "fa-regular fa-pen-to-square",
+      href: "/absensi-piket",
     },
     {
       desc: "Buat Agenda",
       icon: "fa-solid fa-gear",
+      href: "/buat-agenda",
     },
     {
       desc: "Absensi Agenda",
       icon: "fa-solid fa-check",
+      href: "/absensi-agenda",
     },
     {
       desc: "List Harga",
@@ -33,7 +36,7 @@ const Main = () => {
   ];
   return (
     <Fragment>
-      <div className="container">
+      <div className="container" style={{ paddingBottom: "2rem" }}>
         <Header name="Faiz" />
         <Announcement />
         <div

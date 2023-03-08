@@ -5,19 +5,31 @@ import ListGroup from "react-bootstrap/ListGroup";
 import listPiket from "./listpiket";
 
 const JadwalPiket = () => {
-  console.log(listPiket);
   return (
     <div>
-      <HeaderChild />
-      <div className="container">
-        <Card>
-          <Card.Header>Senin</Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-          </ListGroup>
-        </Card>
+      <HeaderChild headerName="Jadwal Piket" />
+      <div
+        className="container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexFlow: "wrap",
+          gap: "20px",
+          paddingBottom: "2rem",
+        }}
+      >
+        {listPiket.map((piket) => {
+          return (
+            <Card style={{ minWidth: "180px" }}>
+              <Card.Header>{piket.hari}</Card.Header>
+              <ListGroup variant="flush">
+                {piket.person.map((a, i) => {
+                  return <ListGroup.Item key={i}>{a}</ListGroup.Item>;
+                })}
+              </ListGroup>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
