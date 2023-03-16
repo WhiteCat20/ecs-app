@@ -25,7 +25,7 @@ const AbsensiAgenda = () => {
             <Form.Label>Kode Absensi</Form.Label>
             <Form.Control placeholder="Contoh : 696969" type="text" />
           </Form.Group>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "end" }}>
             <button style={style.buttonSubmit}>Submit</button>
           </div>
         </Form>

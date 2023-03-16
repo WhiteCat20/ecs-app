@@ -13,7 +13,7 @@ const Announcement = () => {
           fontFamily: "Montserrat",
         }}
         id="Announcement"
-        onClick={(event) => (window.location.href = "/form")}
+        onClick={(event) => (window.location.href = "/list-agenda")}
       >
         <div className="p-3">
           <h1>Agenda Terdekat</h1>

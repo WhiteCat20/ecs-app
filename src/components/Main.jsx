@@ -15,24 +15,14 @@ const Main = () => {
       icon: "fa-regular fa-pen-to-square",
       href: "/absensi-piket",
     },
-    {
-      desc: "Buat Agenda",
-      icon: "fa-solid fa-gear",
-      href: "/buat-agenda",
-    },
+    { desc: "Buat Agenda", icon: "fa-solid fa-gear", href: "/buat-agenda" },
     {
       desc: "Absensi Agenda",
       icon: "fa-solid fa-check",
       href: "/absensi-agenda",
     },
-    {
-      desc: "List Harga",
-      icon: "fa-solid fa-money-check-dollar",
-    },
-    {
-      desc: "Peminjaman",
-      icon: "fa-solid fa-list-check",
-    },
+    { desc: "List Harga", icon: "fa-solid fa-money-check-dollar" },
+    { desc: "Peminjaman", icon: "fa-solid fa-list-check" },
   ];
   return (
     <Fragment>
@@ -44,7 +34,7 @@ const Main = () => {
             display: "flex",
             justifyContent: "center",
             flexFlow: "wrap",
-            gap: "20px",
+            gap: "10px",
           }}
         >
           {cardNavData.map((card, i) => {

@@ -51,7 +51,7 @@ const AbsensiPiket = () => {
             <Form.Label>Upload dokumentasi piket</Form.Label>
             <Form.Control type="file" />
           </Form.Group>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ display: "flex", justifyContent: "end" }}>
             <button style={style.buttonSubmit}>Submit</button>
           </div>
         </Form>

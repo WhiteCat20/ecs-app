@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import HeaderChild from "../Template/HeaderChild";
 import Form from "react-bootstrap/Form";
+import { FloatingLabel } from "react-bootstrap";
 
 const BuatAgenda = () => {
   return (
@@ -19,7 +20,16 @@ const BuatAgenda = () => {
               placeholder="Contoh : 11 September 2001"
             />
           </Form.Group>
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <Form.Label>Deskripsi Agenda</Form.Label>
+          <FloatingLabel
+            controlId="floatingTextarea"
+            style={{ color: "#000", }}
+            label="Silahkan diisi"
+            className="mb-3"
+          >
+            <Form.Control as="textarea" style={{ height:"100px" }} />
+          </FloatingLabel>
+          <div style={{ display: "flex", justifyContent: "end" }}>
             <button style={style.buttonSubmit}>Submit</button>
           </div>
         </Form>
