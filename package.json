@@ -2,7 +2,7 @@
   "name": "ecs-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://app.ecs-laboratory.com",
+  "homepage": "https://app.e-205.org",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -31,7 +31,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -55,5 +57,8 @@
     "whitelist": [
       "API_URL"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

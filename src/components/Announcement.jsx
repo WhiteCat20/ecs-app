@@ -7,7 +7,7 @@ const Announcement = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/get-last-two-agendas")
+      .get("http://dev-kelbot.e-205.org/api/get-last-two-agendas")
       .then((response) => {
         setAgendas(response.data);
       })

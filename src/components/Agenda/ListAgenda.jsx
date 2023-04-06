@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 const ListAgenda = () => {
   const [agendas, setAgendas] = useState([]);
   const getAgendas = async () => {
-    const response = await axios.get("http://localhost:8000/api/agendas");
+    const response = await axios.get("http://dev-kelbot.e-205.org/api/agendas");
     setAgendas(response.data);
   };
   useEffect(() => {
