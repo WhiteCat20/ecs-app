@@ -5,15 +5,25 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import agendas from "./agenda";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const ListAgenda = () => {
+  const [agendas, setAgendas] = useState([]);
+  const getAgendas = async () => {
+    const response = await axios.get("http://localhost:8000/api/agendas");
+    setAgendas(response.data);
+  };
+  useEffect(() => {
+    getAgendas();
+  }, []);
+
   return (
     <div>
       <HeaderChild headerName="List Agenda" />
       <div className="container" style={{ width: "90%" }}>
         <div>
-          {agendas.map((agenda) => {
+          {agendas.map((agenda, i) => {
             return (
               <Accordion expanded={true}>
                 <AccordionSummary
@@ -21,7 +31,7 @@ const ListAgenda = () => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography>{agenda.judul}</Typography>
+                  <Typography>{agenda.nama_agenda}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>

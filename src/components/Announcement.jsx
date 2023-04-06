@@ -1,6 +1,20 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Announcement = () => {
+  const [agendas, setAgendas] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/get-last-two-agendas")
+      .then((response) => {
+        setAgendas(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <div
@@ -20,14 +34,14 @@ const Announcement = () => {
         </div>
         <div>
           <ul>
-            <li>
-              <span className="fw-bold">15 Maret 2023</span> Pengumpulan
-              proposal pengabdian masyarakat
-            </li>
-            <li>
-              <span className="fw-bold">21 Maret 2023</span> Upgrading Praktikum
-              SPK
-            </li>
+            {agendas.map((agenda, i) => {
+              return (
+                <li key={i}>
+                  <span className="fw-bold">{agenda.tanggal}</span> -{" "}
+                  {agenda.nama_agenda}
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="px-3 mt-auto">Load More...</div>

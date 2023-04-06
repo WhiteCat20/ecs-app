@@ -27,7 +27,7 @@ const Main = () => {
   return (
     <Fragment>
       <div className="container" style={{ paddingBottom: "2rem" }}>
-        <Header name="Faiz" />
+        <Header name="Asisten ECS" />
         <Announcement />
         <div
           style={{

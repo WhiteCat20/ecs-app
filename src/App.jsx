@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainAdmin from "./components/Admin/MainAdmin";
 import AbsensiAgenda from "./components/Agenda/AbsensiAgenda";
 import BuatAgenda from "./components/Agenda/BuatAgenda";
 import ListAgenda from "./components/Agenda/ListAgenda";
@@ -20,6 +21,8 @@ function App() {
           <Route path="/buat-agenda" element={<BuatAgenda />} />
           <Route path="/absensi-agenda" element={<AbsensiAgenda />} />
           <Route path="/list-agenda" element={<ListAgenda />} />
+          {/* Admin Pages */}
+          <Route path="/admin" element={<MainAdmin />} />
         </Routes>
       </div>
     </Router>
