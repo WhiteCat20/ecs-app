@@ -1,20 +1,21 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API from "../api/api";
 
 const Announcement = () => {
   const [agendas, setAgendas] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://dev-kelbot.e-205.org/api/get-last-two-agendas")
+      .get(`${API}/api/get-last-two-agendas`)
       .then((response) => {
         setAgendas(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [agendas]);
   return (
     <div>
       <div

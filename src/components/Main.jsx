@@ -1,7 +1,11 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import axios from "axios";
 import Announcement from "./Announcement";
 import CardNav from "./CardNav";
 import Header from "./Header";
+import LogoutButton from "./Template/LogoutButton";
+import { useNavigate, Navigate } from "react-router-dom";
+import API from "../api/api";
 
 const Main = () => {
   const cardNavData = [
@@ -24,10 +28,31 @@ const Main = () => {
     { desc: "List Harga", icon: "fa-solid fa-money-check-dollar" },
     { desc: "Peminjaman", icon: "fa-solid fa-list-check" },
   ];
+
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState("");
+
+  const token = localStorage.getItem("token");
+
+  const fetchData = async () => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    await axios.get(`${API}/api/datauser`).then((response) => {
+      setUser(response.data);
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+    if (!token) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <Fragment>
       <div className="container" style={{ paddingBottom: "2rem" }}>
-        <Header name="Asisten ECS" />
+        <Header name={user.name} />
         <Announcement />
         <div
           style={{
@@ -47,6 +72,7 @@ const Main = () => {
               />
             );
           })}
+          <LogoutButton />
         </div>
       </div>
     </Fragment>

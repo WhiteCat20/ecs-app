@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = ({ name }) => {
   return (
@@ -11,17 +12,19 @@ const Header = ({ name }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent:'center',
+          justifyContent: "center",
           gap: "10px",
           backgroundColor: "#fff",
           padding: "10px 20px",
           borderRadius: "8px",
         }}
       >
-        <i
-          class="fa-regular fa-circle-user"
-          style={{ fontSize: "30px", fontWeight: "600" }}
-        ></i>
+        <Link to="/admin" style={{ color: "#000" }}>
+          <i
+            class="fa-regular fa-circle-user"
+            style={{ fontSize: "30px", fontWeight: "600" }}
+          ></i>
+        </Link>
         <span>Selamat Datang, {name}</span>
       </div>
     </header>

@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CardNav = ({ desc, icon, href }) => {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       style={{ color: "inherit", textDecoration: "none", flexGrow: "1" }}
     >
       <div
@@ -22,7 +23,7 @@ const CardNav = ({ desc, icon, href }) => {
         </div>
         <section className="text-center mt-1">{desc}</section>
       </div>
-    </a>
+    </Link>
   );
 };
 

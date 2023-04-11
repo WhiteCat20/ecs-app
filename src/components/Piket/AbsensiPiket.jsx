@@ -8,6 +8,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
+import API from "../../api/api";
 
 const AbsensiPiket = () => {
   const [nama_asisten, setNamaAsisten] = useState("");
@@ -41,7 +42,7 @@ const AbsensiPiket = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:8000/api/absen-piket",
+        `${API}/api/absen-piket`,
         {
           nama_asisten,
           hari,

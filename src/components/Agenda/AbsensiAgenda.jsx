@@ -7,6 +7,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
+import API from "../../api/api";
 
 const AbsensiAgenda = () => {
   const [agendas, setAgendas] = useState([]);
@@ -39,7 +40,7 @@ const AbsensiAgenda = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:8000/api/absen-agenda",
+        `${API}/api/absen-agenda`,
         {
           nama_asisten,
           nama_agenda,
@@ -59,7 +60,7 @@ const AbsensiAgenda = () => {
     }
   };
   const getAgendas = async () => {
-    const response = await axios.get("http://localhost:8000/api/agendas");
+    const response = await axios.get(`${API}/api/agendas`);
     setAgendas(response.data);
   };
   useEffect(() => {

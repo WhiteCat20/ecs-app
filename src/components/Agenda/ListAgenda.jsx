@@ -7,11 +7,12 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import API from "../../api/api";
 
 const ListAgenda = () => {
   const [agendas, setAgendas] = useState([]);
   const getAgendas = async () => {
-    const response = await axios.get("http://dev-kelbot.e-205.org/api/agendas");
+    const response = await axios.get(`${API}/api/agendas`);
     setAgendas(response.data);
   };
   useEffect(() => {

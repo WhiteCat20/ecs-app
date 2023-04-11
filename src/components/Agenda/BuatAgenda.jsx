@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Form from "react-bootstrap/Form";
 import { FloatingLabel } from "react-bootstrap";
 import axios from "axios";
+import API from "../../api/api";
 
 const BuatAgenda = () => {
   const [nama_agenda, setNamaAgenda] = useState("");
@@ -37,7 +38,7 @@ const BuatAgenda = () => {
   const postAgenda = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/api/agendas", {
+      await axios.post(`${API}/api/agendas`, {
         nama_agenda,
         tanggal,
         deskripsi,
