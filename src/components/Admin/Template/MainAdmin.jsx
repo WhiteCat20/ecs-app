@@ -23,7 +23,6 @@ import Logo from "../../../img/logo-ecs.png";
 import token from "../../Auth/token";
 import axios from "axios";
 import API from "../../../api/api";
-import { useJwt } from "react-jwt";
 
 const drawerWidth = 240;
 
@@ -44,7 +43,9 @@ const MainAdmin = ({ children }, props) => {
 
   useEffect(() => {
     fetchData();
-    console.log(user.level);
+    if (!token) {
+      navigate("/");
+    }
     if (user.level == "user") {
       navigate("/");
     }
@@ -127,7 +128,6 @@ const MainAdmin = ({ children }, props) => {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
@@ -165,10 +165,9 @@ const MainAdmin = ({ children }, props) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          // width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
         style={{
-          backgroundColor: "white", // Update to the desired background color
+          backgroundColor: "white",
           minHeight: "100vh",
         }}
       >
@@ -180,10 +179,6 @@ const MainAdmin = ({ children }, props) => {
 };
 
 MainAdmin.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

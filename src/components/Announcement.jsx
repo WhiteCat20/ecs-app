@@ -1,16 +1,19 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import API from "../api/api";
 
 const Announcement = () => {
   const [agendas, setAgendas] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get(`${API}/api/get-last-two-agendas`)
       .then((response) => {
         setAgendas(response.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -34,16 +37,23 @@ const Announcement = () => {
           <h1>Agenda Terdekat</h1>
         </div>
         <div>
-          <ul>
-            {agendas.map((agenda, i) => {
-              return (
-                <li key={i}>
-                  <span className="fw-bold">{agenda.tanggal}</span> -{" "}
-                  {agenda.nama_agenda}
-                </li>
-              );
-            })}
-          </ul>
+          {isLoading && (
+            <div className="d-flex justify-content-center pb-3">
+              <CircularProgress color="inherit" />
+            </div>
+          )}
+          {!isLoading && (
+            <ul>
+              {agendas.map((agenda, i) => {
+                return (
+                  <li key={i}>
+                    <span className="fw-bold">{agenda.tanggal}</span> -{" "}
+                    {agenda.nama_agenda}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
         </div>
         <div className="px-3 mt-auto">Load More...</div>
       </div>

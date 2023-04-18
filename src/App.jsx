@@ -12,6 +12,7 @@ import Agenda from "./components/Admin/Agenda/Agenda";
 import EditAgenda from "./components/Admin/Agenda/EditAgenda";
 import Piket from "./components/Admin/Piket/Piket";
 import Login from "./components/Auth/Login";
+import PinjamECS from "./components/Layanan/Peminjaman/PinjamECS";
 // import ProtectedRoute from "./components/Auth/ProtectedRoute";
 // import { AuthProvider } from "./context/AuthContext";
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/buat-agenda" element={<BuatAgenda />} />
             <Route path="/absensi-agenda" element={<AbsensiAgenda />} />
             <Route path="/list-agenda" element={<ListAgenda />} />
+            <Route path="/pinjam" element={<PinjamECS />} />
             <Route path="/admin">
               <Route index element={<IndexAdmin />} />
               <Route path="agenda" element={<Agenda />} />

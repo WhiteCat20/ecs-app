@@ -4,7 +4,7 @@ import Announcement from "./Announcement";
 import CardNav from "./CardNav";
 import Header from "./Header";
 import LogoutButton from "./Template/LogoutButton";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import API from "../api/api";
 
 const Main = () => {
@@ -25,12 +25,11 @@ const Main = () => {
       icon: "fa-solid fa-check",
       href: "/absensi-agenda",
     },
-    { desc: "List Harga", icon: "fa-solid fa-money-check-dollar" },
-    { desc: "Peminjaman", icon: "fa-solid fa-list-check" },
+    { desc: "Jasa", icon: "fa-solid fa-money-check-dollar" },
+    { desc: "Peminjaman", icon: "fa-solid fa-list-check", href: "/pinjam" },
   ];
 
   const navigate = useNavigate();
-
   const [user, setUser] = useState("");
 
   const token = localStorage.getItem("token");
@@ -41,7 +40,6 @@ const Main = () => {
       setUser(response.data);
     });
   };
-
   useEffect(() => {
     fetchData();
     if (!token) {
